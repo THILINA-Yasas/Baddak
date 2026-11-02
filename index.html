@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NovaCart | Modern Online Store</title>
+    <meta name="description" content="Modern online shopping store with premium products, quick delivery, and a seamless shopping experience." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo logo-image" aria-label="NovaCart home"><img src="logo/image.png" alt="NovaCart" /></a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="index.html" class="active">Home</a>
+          <div class="shop-menu">
+            <a href="products.html" class="nav-link has-categories">Shop</a>
+            <div class="shop-dropdown" aria-label="Shop categories">
+              <a href="products.html?category=back-covers"><span>Back Covers</span><span>03</span></a>
+              <a href="products.html?category=mobile-accessories"><span>Mobile Accessories</span><span>03</span></a>
+              <a href="products.html?category=kitchen-parts"><span>Kitchen Parts</span><span>02</span></a>
+            </div>
+          </div>
+          <a href="about.html">Our Story</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+          <a href="account.html" class="icon-link" aria-label="Account">Account</a>
+        </div>
+
+        <button class="menu-toggle" aria-label="Open menu">☰</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Everyday essentials, made simple</p>
+            <h1>Small upgrades. Better everyday.</h1>
+            <p>
+              Shop phone back covers, mobile accessories, and practical kitchen essentials in one place.
+            </p>
+            <div class="hero-actions">
+              <a href="products.html" class="btn btn-primary">Shop collection</a>
+              <a href="about.html" class="btn btn-secondary">Our story</a>
+            </div>
+            <div class="hero-stats">
+              <div>
+                <strong>12k+</strong>
+                <span>happy customers</span>
+              </div>
+              <div>
+                <strong>4.9/5</strong>
+                <span>customer love</span>
+              </div>
+              <div>
+                <strong>48h</strong>
+                <span>fast dispatch</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="hero-slider">
+              <div class="slider-track">
+                <div class="slide active">
+                  <img src="https://images.unsplash.com/photo-1535157412991-2ef801c1748b?auto=format&fit=crop&w=900&q=80" alt="Phone back covers in assorted colors" />
+                </div>
+                <div class="slide">
+                  <img src="https://images.unsplash.com/photo-1515940175183-6798529cb860?auto=format&fit=crop&w=900&q=80" alt="Mobile accessories including headphones and a phone case" />
+                </div>
+                <div class="slide">
+                  <img src="https://images.unsplash.com/photo-1665768976778-22ab017f915a?auto=format&fit=crop&w=900&q=80" alt="Kitchen utensils" />
+                </div>
+              </div>
+              <div class="slider-controls">
+                <button class="slider-btn prev" aria-label="Previous product">←</button>
+                <button class="slider-btn next" aria-label="Next product">→</button>
+              </div>
+            </div>
+            <div class="floating-badge badge-top">Trending now</div>
+            <div class="floating-badge badge-bottom">
+              <span>From</span>
+              <strong data-static-price-usd="59">$59</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="featured-categories">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Explore the collection</p>
+            <h2>Shop by category</h2>
+          </div>
+          <div class="category-grid">
+            <a href="products.html?category=back-covers" class="category-card">
+              <img src="https://images.unsplash.com/photo-1535157412991-2ef801c1748b?auto=format&fit=crop&w=900&q=80" alt="Phone cases and back covers" />
+              <div class="category-overlay">
+                <span>Back Covers</span>
+              </div>
+            </a>
+            <a href="products.html?category=mobile-accessories" class="category-card">
+              <img src="https://images.unsplash.com/photo-1515940175183-6798529cb860?auto=format&fit=crop&w=900&q=80" alt="Headphones and mobile accessories" />
+              <div class="category-overlay">
+                <span>Mobile Accessories</span>
+              </div>
+            </a>
+            <a href="products.html?category=kitchen-parts" class="category-card">
+              <img src="https://images.unsplash.com/photo-1665768976778-22ab017f915a?auto=format&fit=crop&w=900&q=80" alt="Kitchen tools and accessories" />
+              <div class="category-overlay">
+                <span>Kitchen Parts</span>
+              </div>
+            </a>
+            <a href="products.html?category=kitchen-parts" class="category-card">
+              <img src="https://images.unsplash.com/photo-1589983006655-4ef9a756ebe3?auto=format&fit=crop&w=900&q=80" alt="Kitchen utensil accessories" />
+              <div class="category-overlay">
+                <span>Kitchen Accessories</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="featured-products section-space">
+        <div class="container">
+          <div class="section-head split-head">
+            <div>
+              <p class="eyebrow">Featured pieces</p>
+              <h2>Popular essentials</h2>
+            </div>
+            <a href="products.html" class="text-link">Browse all</a>
+          </div>
+
+          <div class="product-grid">
+            <article class="product-card" data-category="back-covers">
+              <div class="product-image-wrap">
+                <img src="https://images.unsplash.com/photo-1535157412991-2ef801c1748b?auto=format&fit=crop&w=900&q=80" alt="Protective phone cases" />
+                <span class="product-tag">Best seller</span>
+              </div>
+              <div class="product-body">
+                <div class="product-meta">
+                  <span>Back Covers</span>
+                  <span>★ 4.9</span>
+                </div>
+                <h3>Clear Guard Phone Case</h3>
+                <div class="product-footer">
+                  <strong>$24</strong>
+                  <a href="product-detail.html" class="small-btn">View</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-category="mobile-accessories">
+              <div class="product-image-wrap">
+                <img src="https://images.unsplash.com/photo-1677145503731-87bfe49e5c67?auto=format&fit=crop&w=900&q=80" alt="Mobile phone charger and cable" />
+                <span class="product-tag sale">Sale</span>
+              </div>
+              <div class="product-body">
+                <div class="product-meta">
+                  <span>Mobile Accessories</span>
+                  <span>★ 4.8</span>
+                </div>
+                <h3>Fast USB-C Charger</h3>
+                <div class="product-footer">
+                  <strong>$19</strong>
+                  <a href="product-detail.html" class="small-btn">View</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-category="kitchen-parts">
+              <div class="product-image-wrap">
+                <img src="https://images.unsplash.com/photo-1665768976778-22ab017f915a?auto=format&fit=crop&w=900&q=80" alt="Kitchen tools" />
+                <span class="product-tag new">New</span>
+              </div>
+              <div class="product-body">
+                <div class="product-meta">
+                  <span>Kitchen Parts</span>
+                  <span>★ 4.7</span>
+                </div>
+                <h3>Kitchen Tool Set</h3>
+                <div class="product-footer">
+                  <strong>$18</strong>
+                  <a href="product-detail.html" class="small-btn">View</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-category="kitchen-parts">
+              <div class="product-image-wrap">
+                <img src="https://images.unsplash.com/photo-1589983006655-4ef9a756ebe3?auto=format&fit=crop&w=900&q=80" alt="Kitchen utensil accessories" />
+                <span class="product-tag">Hot</span>
+              </div>
+              <div class="product-body">
+                <div class="product-meta">
+                  <span>Kitchen Accessories</span>
+                  <span>★ 4.9</span>
+                </div>
+                <h3>Everyday Utensil Set</h3>
+                <div class="product-footer">
+                  <strong>$22</strong>
+                  <a href="product-detail.html" class="small-btn">View</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="promo-banner section-space">
+        <div class="container promo-wrap">
+          <div class="promo-content">
+            <p class="eyebrow">Seasonal offer</p>
+            <h2>Give your everyday essentials an upgrade.</h2>
+            <p class="promo-subtext">Shop phone covers, mobile accessories, and useful kitchen tools at everyday prices.</p>
+
+            <div class="promo-side">
+              <span class="promo-tag">Limited-time offers</span>
+              <a href="products.html" class="btn btn-primary">Shop accessories</a>
+            </div>
+          </div>
+
+          <div class="promo-badge-card">
+            <span>Phone + kitchen</span>
+            <strong>Save up to 30%</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="benefits section-space">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">The NovaCart difference</p>
+            <h2>Thoughtful pieces built to last</h2>
+          </div>
+
+          <div class="benefit-grid">
+            <div class="benefit-box">
+              <div class="icon-circle">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 14c-1.2-2.8-4.2-4.4-7.5-5.3C9.9 8.2 8.6 7 8.1 5.1c-1.3 1.1-2.1 2.8-2.1 4.7 0 2.7 2 5 4.8 5.7l2.6 1.1 1.2 3.4 3.5-3.1 1.9-1.9Z"/><path d="M6 17.5c1.8 1 3.7 1.5 6 1.5 2 0 3.7-.5 5-1.5"/><path d="M13 4.5c.6 1.6 1.8 2.7 3.5 3.4"/></svg>
+              </div>
+              <h3>Considered materials</h3>
+              <p>Thoughtful materials and clean finishes bring lasting style to everyday spaces.</p>
+            </div>
+            <div class="benefit-box">
+              <div class="icon-circle">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 15.5 15.5 5l3.5 3.5L8.5 19H5v-3.5Z"/><path d="M14.5 5l3.5 3.5"/><path d="M4 20h16"/></svg>
+              </div>
+              <h3>Made to last</h3>
+              <p>Well-designed essentials combine reliable quality with timeless, versatile style.</p>
+            </div>
+            <div class="benefit-box">
+              <div class="icon-circle">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 15.5h4.5l1.8-5.3 3.4 8.2 2.5-5.8H21"/><path d="M5 18.5h14"/><path d="M7 7.5h10"/><path d="M8 4.5h8"/></svg>
+              </div>
+              <h3>Easy delivery</h3>
+              <p>Fast shipping and friendly support make your shopping experience simple and smooth.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="testimonials section-space">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Customer stories</p>
+            <h2>Made for the moments at home</h2>
+          </div>
+
+          <div class="testimonial-grid">
+            <article class="testimonial-card featured-testimonial">
+              <div class="testimonial-top">
+                <div class="stars">★★★★★</div>
+                <span class="review-badge">Verified buyer</span>
+              </div>
+              <p class="quote">“The craftsmanship is beautiful and the chair feels so comfortable in our living room. It instantly warmed up the space.”</p>
+              <div class="person">
+                <div class="avatar">SM</div>
+                <div>
+                  <strong>Sarah M.</strong>
+                  <span>Homeowner</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-card">
+              <div class="testimonial-top">
+                <div class="stars">★★★★★</div>
+                <span class="review-badge">Interior studio</span>
+              </div>
+              <p class="quote">“Shopping was incredibly easy, and the quality exceeded our expectations for a client project.”</p>
+              <div class="person">
+                <div class="avatar">DL</div>
+                <div>
+                  <strong>David L.</strong>
+                  <span>Designer</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-card">
+              <div class="testimonial-top">
+                <div class="stars">★★★★★</div>
+                <span class="review-badge">Repeat order</span>
+              </div>
+              <p class="quote">“We bought a serving tray and lamp set for our cabin, and they look stunning. The finish feels truly premium.”</p>
+              <div class="person">
+                <div class="avatar">OR</div>
+                <div>
+                  <strong>Olivia R.</strong>
+                  <span>Cottage owner</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="newsletter section-space">
+        <div class="container newsletter-box">
+          <div>
+            <p class="eyebrow">Stay inspired</p>
+            <h2>Get new product drops and seasonal offers.</h2>
+          </div>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your email address" aria-label="Your email address" />
+            <button type="submit" class="btn btn-primary">Join now</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a href="index.html" class="logo logo-image footer-logo" aria-label="NovaCart home"><img src="logo/image.png" alt="NovaCart" /></a>
+          <p>Good design for everyday living.</p>
+        </div>
+
+        <div>
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="products.html">New arrivals</a></li>
+            <li><a href="products.html">Best sellers</a></li>
+            <li><a href="products.html">Gift sets</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">Our story</a></li>
+            <li><a href="contact.html">Support</a></li>
+            <li><a href="account.html">My account</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Follow</h4>
+          <ul>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Pinterest</a></li>
+            <li><a href="#">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>© <span id="year"></span> NovaCart. All rights reserved.</span>
+      </div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js?v=20261030"></script>
+    <script src="script.js?v=20261030-images-currency-reviews"></script>
+  </body>
+</html>

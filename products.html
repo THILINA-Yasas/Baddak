@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop All | NovaCart</title>
+    <meta name="description" content="Browse all products in the NovaCart store." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo logo-image" aria-label="NovaCart home"><img src="logo/image.png" alt="NovaCart" /></a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <div class="shop-menu">
+            <a href="products.html" class="nav-link has-categories active">Shop</a>
+            <div class="shop-dropdown" aria-label="Shop categories">
+              <a href="products.html?category=back-covers"><span>Back Covers</span><span>03</span></a>
+              <a href="products.html?category=mobile-accessories"><span>Mobile Accessories</span><span>03</span></a>
+              <a href="products.html?category=kitchen-parts"><span>Kitchen Parts</span><span>02</span></a>
+            </div>
+          </div>
+          <a href="about.html">Our Story</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="header-actions">
+          <a href="account.html" class="icon-link">Account</a>
+        </div>
+        <button class="menu-toggle" aria-label="Open menu">☰</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero shop-hero">
+        <div class="container shop-hero-inner">
+          <div class="shop-hero-copy">
+            <p class="eyebrow">Phones, accessories, and kitchen</p>
+            <h1>Useful everyday essentials, all in one place.</h1>
+          </div>
+          <div class="shop-hero-highlights">
+            <div class="highlight-pill">
+              <strong>12k+</strong>
+              <span>happy homes</span>
+            </div>
+            <div class="highlight-pill">
+              <strong>4.9/5</strong>
+              <span>customer love</span>
+            </div>
+            <div class="highlight-pill">
+              <strong>48h</strong>
+              <span>fast dispatch</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="shop-spotlight section-space-small">
+        <div class="container spotlight-grid">
+          <div class="spotlight-card spotlight-card-main">
+            <span class="mini-label">Trending</span>
+            <h3>Accessories for the way you live</h3>
+            <p>Protect your phone, power up, and get more from your kitchen.</p>
+          </div>
+          <div class="spotlight-card">
+            <span class="mini-label">Best sellers</span>
+            <strong>Phone Back Covers</strong>
+            <small>Rated 4.9 by 2.4k shoppers</small>
+          </div>
+          <div class="spotlight-card">
+            <span class="mini-label">Limited edit</span>
+            <strong>Kitchen Essentials</strong>
+            <small>Practical tools for everyday cooking</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="shop-page section-space">
+        <div class="container shop-layout">
+          <aside class="shop-sidebar">
+            <div class="side-panel">
+              <div class="side-panel-head">
+                <h3>Filters</h3>
+                <button class="clear-link" type="button">Clear</button>
+              </div>
+
+              <label class="search-box" for="productSearch">
+                <span>Search</span>
+                <input id="productSearch" type="search" placeholder="Search products" />
+              </label>
+
+              <ul class="filter-list">
+                <li><button class="filter-btn active" data-filter="all">All products</button></li>
+                <li><button class="filter-btn" data-filter="back-covers">Back Covers</button></li>
+                <li><button class="filter-btn" data-filter="mobile-accessories">Mobile Accessories</button></li>
+                <li><button class="filter-btn" data-filter="kitchen-parts">Kitchen Parts</button></li>
+              </ul>
+            </div>
+
+            <div class="side-panel">
+              <div class="side-panel-head">
+                <h3>Price</h3>
+                <span>Range</span>
+              </div>
+              <div class="price-range">
+                <label><input type="checkbox" /><span data-price-band="under-100">Under $100</span></label>
+                <label><input type="checkbox" /><span data-price-band="100-200">$100 - $200</span></label>
+                <label><input type="checkbox" /><span data-price-band="200-500">$200 - $500</span></label>
+              </div>
+            </div>
+          </aside>
+
+          <div class="shop-content">
+            <div class="toolbar">
+              <div class="toolbar-copy">
+                <span class="toolbar-label">Showing</span>
+                <strong id="resultCount">8 products</strong>
+              </div>
+              <div class="sort-wrap">
+                <span>Sort by</span>
+                <div class="custom-select compact-select" data-custom-select>
+                  <input type="hidden" name="sort" value="Featured" />
+                  <button type="button" class="custom-select-trigger" aria-label="Sort products" aria-haspopup="listbox" aria-expanded="false">
+                    <span>Featured</span><span class="custom-select-chevron" aria-hidden="true">⌄</span>
+                  </button>
+                  <div class="custom-select-options" role="listbox" aria-label="Sort products">
+                    <button type="button" role="option" aria-selected="true" data-value="Featured">Featured</button>
+                    <button type="button" role="option" aria-selected="false" data-value="Price: Low to High">Price: Low to High</button>
+                    <button type="button" role="option" aria-selected="false" data-value="Price: High to Low">Price: High to Low</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-grid product-grid-shop">
+              <article class="product-card product-card-shop" data-category="back-covers" data-name="clear guard phone case">
+                <div class="product-image-wrap">
+                  <img src="https://images.unsplash.com/photo-1535157412991-2ef801c1748b?auto=format&fit=crop&w=900&q=80" alt="Clear Guard Phone Case" />
+                  <span class="product-tag">Best seller</span>
+                  <button class="wishlist-btn" aria-label="Save Clear Guard Phone Case">♡</button>
+                </div>
+                <div class="product-body">
+                  <div class="product-meta"><span>Back Covers</span><span>★ 4.9</span></div>
+                  <h3>Clear Guard Phone Case</h3>
+                  <div class="product-bottom">
+                    <div class="price-stack">
+                      <strong>$24</strong>
+                      <span>$30</span>
+                    </div>
+                    <button class="buy-now-btn" type="button">Buy now</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="product-card product-card-shop" data-category="back-covers" data-name="matte impact case">
+                <div class="product-image-wrap">
+                  <img src="https://images.unsplash.com/photo-1604671748253-e683240e7efa?auto=format&fit=crop&w=900&q=80" alt="Matte Impact Phone Case" />
+                  <span class="product-tag sale">Sale</span>
+                  <button class="wishlist-btn" aria-label="Save Matte Impact Case">♡</button>
+                </div>
+                <div class="product-body">
+                  <div class="product-meta"><span>Back Covers</span><span>★ 4.8</span></div>
+                  <h3>Matte Impact Case</h3>
+                  <div class="product-bottom">
+                    <div class="price-stack">
+                      <strong>$29</strong>
+                      <span>$35</span>
+                    </div>
+                    <button class="buy-now-btn" type="button">Buy now</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="product-card product-card-shop" data-category="mobile-accessories" data-name="fast usb-c charger">
+                <div class="product-image-wrap">
+                  <img src="https://images.unsplash.com/photo-1677145503731-87bfe49e5c67?auto=format&fit=crop&w=900&q=80" alt="Fast USB-C Charger" />
+                  <span class="product-tag new">New</span>
+                  <button class="wishlist-btn" aria-label="Save Fast USB-C Charger">♡</button>
+                </div>
+                <div class="product-body">
+                  <div class="product-meta"><span>Mobile Accessories</span><span>★ 4.7</span></div>
+                  <h3>Fast USB-C Charger</h3>
+                  <div class="product-bottom">
+                    <div class="price-stack">
+                      <strong>$19</strong>
+                      <span>$25</span>
+                    </div>
+                    <button class="buy-now-btn" type="button">Buy now</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="product-card product-card-shop" data-category="mobile-accessories" data-name="wireless earbuds">
+                <div class="product-image-wrap">
+                  <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=900&q=80" alt="Wireless Headphones" />
+                  <span class="product-tag">Hot</span>
+                  <button class="wishlist-btn" aria-label="Save Wireless Earbuds">♡</button>
+                </div>
+                <div class="product-body">
+                  <div class="product-meta"><span>Mobile Accessories</span><span>★ 4.9</span></div>
+                  <h3>Wireless Headphones</h3>
+                  <div class="product-bottom">
+                    <div class="price-stack">
+                      <strong>$49</strong>
+                      <span>$59</span>
+                    </div>
+                    <button class="buy-now-btn" type="button">Buy now</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="product-card product-card-shop" data-category="mobile-accessories" data-name="foldable phone stand">
+                <div class="product-image-wrap">
+                  <img src="https://images.unsplash.com/photo-1515940175183-6798529cb860?auto=format&fit=crop&w=900&q=80" alt="Foldable Phone Stand and mobile accessories" />
+                  <span class="product-tag">Popular</span>
+                  <button class="wishlist-btn" aria-label="Save Foldable Phone Stand">♡</button>
+                </div>
+                <div class="product-body">
+                  <div class="product-meta"><span>Mobile Accessories</span><span>★ 4.8</span></div>
+                  <h3>Foldable Phone Stand</h3>
+                  <div class="product-bottom">
+                    <div class="price-stack">
+                      <strong>$16</strong>
+                      <span>$20</span>
+                    </div>
+                    <button class="buy-now-btn" type="button">Buy now</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="product-card product-card-shop" data-category="mobile-accessories" data-name="braided charging cable duo">
+                <div class="product-image-wrap">
+                  <img src="https://images.unsplash.com/photo-1677145503731-87bfe49e5c67?auto=format&fit=crop&w=900&q=80" alt="Braided Charging Cable Duo" />
+                  <span class="product-tag sale">-15%</span>
+                  <button class="wishlist-btn" aria-label="Save Braided Charging Cable Duo">♡</button>
+                </div>
+                <div class="product-body">
+                  <div class="product-meta"><span>Mobile Accessories</span><span>★ 4.6</span></div>
+                  <h3>Braided Charging Cable Duo</h3>
+                  <div class="product-bottom">
+                    <div class="price-stack">
+                      <strong>$12</strong>
+                      <span>$16</span>
+                    </div>
+                    <button class="buy-now-btn" type="button">Buy now</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="product-card product-card-shop" data-category="kitchen-parts" data-name="silicone spatula set">
+                <div class="product-image-wrap">
+                  <img src="https://images.unsplash.com/photo-1665768976778-22ab017f915a?auto=format&fit=crop&w=900&q=80" alt="Silicone Spatula Set" />
+                  <span class="product-tag">New</span>
+                  <button class="wishlist-btn" aria-label="Save Silicone Spatula Set">♡</button>
+                </div>
+                <div class="product-body">
+                  <div class="product-meta"><span>Kitchen Parts</span><span>★ 4.9</span></div>
+                  <h3>Silicone Spatula Set</h3>
+                  <div class="product-bottom">
+                    <div class="price-stack">
+                      <strong>$18</strong>
+                      <span>$24</span>
+                    </div>
+                    <button class="buy-now-btn" type="button">Buy now</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="product-card product-card-shop" data-category="kitchen-parts" data-name="compact vegetable chopper">
+                <div class="product-image-wrap">
+                  <img src="https://images.unsplash.com/photo-1589983006655-4ef9a756ebe3?auto=format&fit=crop&w=900&q=80" alt="Compact Vegetable Chopper" />
+                  <span class="product-tag new">Popular</span>
+                  <button class="wishlist-btn" aria-label="Save Compact Vegetable Chopper">♡</button>
+                </div>
+                <div class="product-body">
+                  <div class="product-meta"><span>Kitchen Parts</span><span>★ 4.8</span></div>
+                  <h3>Compact Vegetable Chopper</h3>
+                  <div class="product-bottom">
+                    <div class="price-stack">
+                      <strong>$28</strong>
+                      <span>$36</span>
+                    </div>
+                    <button class="buy-now-btn" type="button">Buy now</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a href="index.html" class="logo logo-image footer-logo" aria-label="NovaCart home"><img src="logo/image.png" alt="NovaCart" /></a>
+          <p>Good design for everyday living.</p>
+        </div>
+        <div>
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="products.html">New arrivals</a></li>
+            <li><a href="products.html">Best sellers</a></li>
+            <li><a href="products.html">Gift sets</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">Our story</a></li>
+            <li><a href="contact.html">Support</a></li>
+            <li><a href="account.html">My account</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Follow</h4>
+          <ul>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Pinterest</a></li>
+            <li><a href="#">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container footer-bottom"><span>© <span id="year"></span> NovaCart. All rights reserved.</span></div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js?v=20261030"></script>
+    <script src="script.js?v=20261030-images-currency-reviews"></script>
+  </body>
+</html>

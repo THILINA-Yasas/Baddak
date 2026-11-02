@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Admin | Baddak Store</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css?v=20261030-currency-reviews" />
+  </head>
+  <body class="admin-page">
+    <header class="site-header">
+      <div class="container admin-header">
+        <a href="index.html" class="logo logo-image" aria-label="Baddak Store home">
+          <img src="logo/image.png" alt="Baddak Store" />
+        </a>
+        <div class="admin-header-actions">
+          <a class="text-link" href="products.html">View store</a>
+          <button class="admin-menu-toggle" id="drawerToggle" type="button" aria-label="Open admin menu" aria-expanded="false" hidden>☰</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="admin-drawer-backdrop" id="drawerBackdrop" hidden></div>
+    <aside class="admin-drawer" id="adminDrawer" aria-label="Admin menu" aria-hidden="true">
+      <div class="admin-drawer-head">
+        <div>
+          <span class="admin-drawer-label">Store admin</span>
+          <strong id="drawerUserEmail">Admin account</strong>
+        </div>
+        <button class="admin-drawer-close" id="drawerClose" type="button" aria-label="Close admin menu">×</button>
+      </div>
+      <nav class="admin-drawer-nav" aria-label="Admin sections">
+        <button class="admin-nav-item is-active" type="button" data-admin-view="overview"><span aria-hidden="true">⌂</span> Overview</button>
+        <button class="admin-nav-item" type="button" data-admin-view="products"><span aria-hidden="true">▦</span> Manage products</button>
+        <button class="admin-nav-item" type="button" data-admin-view="reviews"><span aria-hidden="true">★</span> Manage reviews</button>
+      </nav>
+      <div class="admin-drawer-footer">
+        <a class="admin-nav-item" href="products.html"><span aria-hidden="true">↗</span> View storefront</a>
+        <button class="admin-nav-item admin-sign-out" id="signOutButton" type="button" hidden><span aria-hidden="true">⇥</span> Sign out</button>
+      </div>
+    </aside>
+
+    <main class="container admin-main">
+      <p class="admin-status" id="adminStatus" role="status" aria-live="polite">Checking Firebase connection…</p>
+
+      <section class="admin-login card-panel" id="loginPanel" hidden>
+        <p class="eyebrow">Store management</p>
+        <h2>Admin sign-in</h2>
+        <p>Sign in with the authorized Google account to manage products.</p>
+        <button class="btn btn-primary" id="signInButton" type="button">Continue with Google</button>
+        <p class="admin-provider-help">If Google sign-in has not been enabled yet, <a href="https://console.firebase.google.com/project/baddak-store-2026/authentication/providers" target="_blank" rel="noopener noreferrer">enable it in Firebase Console</a>.</p>
+      </section>
+
+      <section class="admin-workspace" id="adminWorkspace" hidden>
+        <section class="admin-view" id="overviewView">
+          <div class="admin-page-heading">
+            <div>
+              <p class="eyebrow">Store management</p>
+              <h1>Overview</h1>
+              <p>Here’s how your store is doing today.</p>
+            </div>
+            <button class="btn btn-primary" type="button" data-open-admin-view="products">Manage products <span aria-hidden="true">→</span></button>
+          </div>
+
+          <div class="admin-status-overview card-panel">
+            <div class="admin-status-icon" aria-hidden="true">✓</div>
+            <div class="admin-status-copy">
+              <span class="admin-card-label">Store status</span>
+              <h2 id="storeStatusTitle">Connecting to your store</h2>
+              <p id="storeStatusDetail">Checking the live product database.</p>
+            </div>
+            <span class="admin-live-indicator"><i></i> Live</span>
+          </div>
+
+          <div class="admin-stat-grid">
+            <article class="admin-stat-card card-panel">
+              <span class="admin-card-label">Total products</span>
+              <strong id="totalProductStat">—</strong>
+              <span class="admin-stat-foot">In your catalog</span>
+            </article>
+            <article class="admin-stat-card card-panel">
+              <span class="admin-card-label">Visible in store</span>
+              <strong id="visibleProductStat">—</strong>
+              <span class="admin-stat-foot">Available to customers</span>
+            </article>
+            <article class="admin-stat-card card-panel">
+              <span class="admin-card-label">Featured products</span>
+              <strong id="featuredProductStat">—</strong>
+              <span class="admin-stat-foot">Highlighted on home page</span>
+            </article>
+          </div>
+          <section class="admin-recent card-panel">
+            <div class="admin-section-heading">
+              <div><span class="admin-card-label">Catalog</span><h2>Recently updated</h2></div>
+              <button class="admin-text-button" type="button" data-open-admin-view="products">View all products <span aria-hidden="true">→</span></button>
+            </div>
+            <div class="admin-recent-list" id="recentProductList">
+              <p class="admin-empty">Products will appear here when the catalog connects.</p>
+            </div>
+          </section>
+        </section>
+
+        <section class="admin-view" id="productsView" hidden>
+          <div class="admin-page-heading">
+            <div>
+              <p class="eyebrow">Catalog</p>
+              <h1>Manage products</h1>
+              <p>Add, update, and control products in your storefront.</p>
+            </div>
+            <div class="admin-page-actions">
+              <button class="btn btn-secondary" id="seedButton" type="button" hidden>Import sample products</button>
+              <button class="btn btn-primary" id="addProductButton" type="button">＋ Add product</button>
+            </div>
+          </div>
+
+          <div class="admin-products-toolbar card-panel">
+            <div><strong id="productCount">Loading products…</strong><span>Manage your current catalog</span></div>
+            <label class="admin-search"><span aria-hidden="true">⌕</span><input id="adminProductSearch" type="search" placeholder="Search products" aria-label="Search products" /></label>
+          </div>
+
+          <dialog class="admin-product-dialog" id="productDialog" aria-labelledby="formTitle">
+            <form class="admin-form card-panel" id="productForm">
+              <div class="admin-form-heading">
+                <div><span class="admin-card-label">Product details</span><h2 id="formTitle">Add product</h2></div>
+                <button class="admin-drawer-close" id="closeProductForm" type="button" aria-label="Close product form">×</button>
+              </div>
+              <input id="productId" type="hidden" />
+              <div class="admin-form-fields">
+                <label>Product name<input id="productName" name="name" type="text" maxlength="120" required /></label>
+                <label>Category<select id="productCategory" name="category" required>
+                  <option value="back-covers">Back Covers</option>
+                  <option value="mobile-accessories">Mobile Accessories</option>
+                  <option value="kitchen-parts">Kitchen Parts</option>
+                </select></label>
+                <label>Price (USD)<input id="productPrice" name="price" type="number" min="0" step="0.01" required /></label>
+                <label>Old price (optional)<input id="productOldPrice" name="oldPrice" type="number" min="0" step="0.01" /></label>
+                <label class="admin-form-wide">Image URL (HTTPS)<input id="productImage" name="image" type="url" placeholder="https://…" required /></label>
+                <label class="admin-form-wide">Additional image 2 (optional)<input id="productImage2" name="image2" type="url" placeholder="https://…" /></label>
+                <label class="admin-form-wide">Additional image 3 (optional)<input id="productImage3" name="image3" type="url" placeholder="https://…" /></label>
+                <label>Short tag (optional)<input id="productTag" name="tag" type="text" maxlength="40" placeholder="New, Sale, Best seller…" /></label>
+                <label class="admin-form-wide">Description<textarea id="productDescription" name="description" rows="3" maxlength="2000"></textarea></label>
+              </div>
+              <div class="admin-form-options">
+                <label class="admin-checkbox"><input id="productFeatured" name="featured" type="checkbox" /> Feature on the home page</label>
+                <label class="admin-checkbox"><input id="productActive" name="active" type="checkbox" checked /> Visible in the store</label>
+              </div>
+              <div class="admin-form-actions">
+                <button class="btn btn-primary" type="submit" id="saveProductButton">Save product</button>
+                <button class="btn btn-secondary" type="button" id="cancelEditButton" hidden>Cancel edit</button>
+              </div>
+            </form>
+          </dialog>
+
+          <section class="admin-currency-settings card-panel" aria-labelledby="currencySettingsTitle">
+            <div class="admin-section-heading">
+              <div><span class="admin-card-label">Pricing</span><h2 id="currencySettingsTitle">Store currency</h2></div>
+            </div>
+            <form class="admin-currency-form" id="currencySettingsForm">
+              <label>Currency code (ISO 4217)<input id="currencyCode" name="currency" type="text" maxlength="3" pattern="[A-Za-z]{3}" autocomplete="off" required /></label>
+              <label>Exchange rate (1 USD =)<input id="currencyRate" name="usdRate" type="number" min="0.000001" step="any" required /></label>
+              <button class="btn btn-primary" id="saveCurrencyButton" type="submit">Save currency</button>
+            </form>
+            <p class="admin-settings-help">Product prices are entered in USD and converted using this rate. Update the rate when needed.</p>
+          </section>
+
+          <div class="admin-product-list" id="adminProductList" aria-live="polite"></div>
+        </section>
+
+        <section class="admin-view" id="reviewsView" hidden>
+          <div class="admin-page-heading">
+            <div><p class="eyebrow">Customer feedback</p><h1>Manage reviews</h1><p>Add or remove customer reviews shown on product pages.</p></div>
+          </div>
+          <section class="admin-review-manager card-panel">
+            <h2>Add a product review</h2>
+            <form class="admin-review-form" id="reviewForm">
+              <label>Product<select id="reviewProduct" required><option value="">Select a product</option></select></label>
+              <label>Reviewer name<input id="reviewerName" type="text" maxlength="80" required /></label>
+              <label>Rating<select id="reviewRating" required>
+                <option value="5">5 stars</option><option value="4">4 stars</option><option value="3">3 stars</option><option value="2">2 stars</option><option value="1">1 star</option>
+              </select></label>
+              <label class="admin-form-wide">Review<textarea id="reviewText" rows="3" maxlength="1000" required></textarea></label>
+              <button class="btn btn-primary" id="addReviewButton" type="submit">Add review</button>
+            </form>
+          </section>
+          <section class="admin-review-manager card-panel">
+            <div class="admin-section-heading"><div><span class="admin-card-label">Product feedback</span><h2>Existing reviews</h2></div></div>
+            <div class="admin-review-list" id="adminReviewList" aria-live="polite"><p class="admin-empty">Select a product to manage its reviews.</p></div>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js?v=20261030-dashboard"></script>
+    <script src="admin.js?v=20261030-delete-inline-confirm"></script>
+  </body>
+</html>

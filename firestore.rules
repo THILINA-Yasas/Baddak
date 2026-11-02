@@ -1,0 +1,90 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.token.email == 'thilinayasasr@gmail.com'
+        && request.auth.token.email_verified == true;
+    }
+
+    function validProduct() {
+      return request.resource.data.keys().hasOnly([
+          'name', 'category', 'price', 'oldPrice', 'image', 'image2', 'image3', 'tag',
+          'description', 'active', 'featured', 'rating', 'reviewCount', 'createdAt', 'updatedAt'
+        ])
+        && request.resource.data.name is string
+        && request.resource.data.name.size() > 0
+        && request.resource.data.name.size() <= 120
+        && request.resource.data.category in [
+          'back-covers', 'mobile-accessories', 'kitchen-parts'
+        ]
+        && request.resource.data.price is number
+        && request.resource.data.price >= 0
+        && (request.resource.data.oldPrice == null
+          || (request.resource.data.oldPrice is number && request.resource.data.oldPrice >= 0))
+        && request.resource.data.image is string
+        && request.resource.data.image.matches('https://.*')
+        && (!request.resource.data.keys().hasAny(['image2'])
+          || request.resource.data.image2 == ''
+          || (request.resource.data.image2 is string && request.resource.data.image2.matches('https://.*')))
+        && (!request.resource.data.keys().hasAny(['image3'])
+          || request.resource.data.image3 == ''
+          || (request.resource.data.image3 is string && request.resource.data.image3.matches('https://.*')))
+        && request.resource.data.tag is string
+        && request.resource.data.tag.size() <= 40
+        && request.resource.data.description is string
+        && request.resource.data.description.size() <= 2000
+        && request.resource.data.active is bool
+        && request.resource.data.featured is bool
+        && request.resource.data.rating is number
+        && request.resource.data.rating >= 0
+        && request.resource.data.rating <= 5
+        && (!request.resource.data.keys().hasAny(['reviewCount'])
+          || (request.resource.data.reviewCount is number && request.resource.data.reviewCount >= 0))
+        && request.resource.data.createdAt is timestamp
+        && request.resource.data.updatedAt is timestamp;
+    }
+
+    match /products/{productId} {
+      allow get, list: if isAdmin() || resource.data.active == true;
+      allow create: if isAdmin() && validProduct();
+      allow update: if isAdmin()
+        && request.resource.data.createdAt == resource.data.createdAt
+        && validProduct();
+      allow delete: if isAdmin();
+
+      match /reviews/{reviewId} {
+        allow get, list: if isAdmin()
+          || (resource.data.active == true
+            && get(/databases/$(database)/documents/products/$(productId)).data.active == true);
+        allow create: if isAdmin()
+          && request.resource.data.keys().hasOnly(['name', 'rating', 'text', 'active', 'createdAt'])
+          && request.resource.data.name is string
+          && request.resource.data.name.size() > 0
+          && request.resource.data.name.size() <= 80
+          && request.resource.data.rating is number
+          && request.resource.data.rating >= 1
+          && request.resource.data.rating <= 5
+          && request.resource.data.text is string
+          && request.resource.data.text.size() > 0
+          && request.resource.data.text.size() <= 1000
+          && request.resource.data.active == true
+          && request.resource.data.createdAt is timestamp;
+        allow delete: if isAdmin();
+      }
+    }
+
+    match /settings/{settingId} {
+      allow get, list: if settingId == 'store';
+      allow create, update: if isAdmin()
+        && settingId == 'store'
+        && request.resource.data.keys().hasOnly(['currency', 'usdRate', 'updatedAt'])
+        && request.resource.data.currency is string
+        && request.resource.data.currency.matches('^[A-Z]{3}$')
+        && request.resource.data.usdRate is number
+        && request.resource.data.usdRate > 0
+        && request.resource.data.updatedAt is timestamp;
+      allow delete: if isAdmin() && settingId == 'store';
+    }
+  }
+}

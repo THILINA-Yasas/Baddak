@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Account | NovaCart</title>
+    <meta name="description" content="Manage your NovaCart account." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo logo-image" aria-label="NovaCart home"><img src="logo/image.png" alt="NovaCart" /></a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <div class="shop-menu">
+            <a href="products.html" class="nav-link has-categories">Shop</a>
+            <div class="shop-dropdown" aria-label="Shop categories">
+              <a href="products.html?category=back-covers"><span>Back Covers</span><span>03</span></a>
+              <a href="products.html?category=mobile-accessories"><span>Mobile Accessories</span><span>03</span></a>
+              <a href="products.html?category=kitchen-parts"><span>Kitchen Parts</span><span>02</span></a>
+            </div>
+          </div>
+          <a href="about.html">Our Story</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="header-actions">
+          <a href="account.html" class="icon-link active-link">Account</a>
+        </div>
+        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero slim-hero">
+        <div class="container">
+          <p class="eyebrow">My account</p>
+          <h1>Welcome back, Sarah</h1>
+        </div>
+      </section>
+
+      <section class="account-page section-space">
+        <div class="container account-layout">
+          <aside class="account-nav card-panel">
+            <ul>
+              <li><a href="#dashboard" class="active" data-tab="dashboard">Dashboard</a></li>
+              <li><a href="#orders" data-tab="orders">Orders</a></li>
+              <li><a href="#wishlist" data-tab="wishlist">Wishlist</a></li>
+              <li><a href="#addresses" data-tab="addresses">Address book</a></li>
+              <li><a href="#settings" data-tab="settings">Settings</a></li>
+            </ul>
+          </aside>
+
+          <div class="account-content card-panel">
+            <div class="account-topbar">
+              <div class="profile-summary">
+                <div class="profile-avatar">SM</div>
+                <div>
+                  <p class="eyebrow">Welcome back</p>
+                  <h3>Hi Sarah, here’s your home dashboard</h3>
+                </div>
+              </div>
+              <button type="button" class="btn btn-secondary" data-popup="profile">Manage profile</button>
+            </div>
+
+            <div class="account-section active" id="dashboard-panel">
+              <div class="stats-grid">
+                <div class="stat-card accent">
+                  <span>Total orders</span>
+                  <strong>12</strong>
+                  <small>Across 3 collections</small>
+                </div>
+                <div class="stat-card">
+                  <span>Wishlist</span>
+                  <strong>4</strong>
+                  <small>Saved pieces</small>
+                </div>
+                <div class="stat-card">
+                  <span>Saved address</span>
+                  <strong>2</strong>
+                  <small>Delivery spots</small>
+                </div>
+              </div>
+
+              <div class="dashboard-grid">
+                <div class="info-panel">
+                  <div class="section-row">
+                    <h4>Recent orders</h4>
+                    <a href="#orders" class="text-link" data-tab="orders">View all</a>
+                  </div>
+                  <div id="recentOrdersList"></div>
+                </div>
+
+                <div class="info-panel">
+                  <div class="section-row">
+                    <h4>Quick actions</h4>
+                  </div>
+                  <div class="quick-action-list">
+                    <a href="products.html" class="quick-action">Browse new arrivals</a>
+                    <a href="#orders" class="quick-action" data-tab="orders">Track an order</a>
+                    <a href="#addresses" class="quick-action" data-tab="addresses">Update address</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="info-panel tracking-preview">
+                <div class="section-row">
+                  <h4>Delivery snapshot</h4>
+                  <span class="order-status shipped">Shipped</span>
+                </div>
+                <div class="tracking-summary">
+                  <div>
+                    <span class="summary-label">Current order</span>
+                    <strong>#1024 · Luna Lounge Chair</strong>
+                  </div>
+                  <div>
+                    <span class="summary-label">ETA</span>
+                    <strong>Arriving Apr 22</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="account-section" id="orders-panel">
+              <div class="section-row tracking-section-head">
+                <div>
+                  <p class="eyebrow">Your deliveries</p>
+                  <h3>Order tracking</h3>
+                  <p>Follow your order from our store to your home.</p>
+                </div>
+              </div>
+
+              <form class="track-order-form" id="trackOrderForm">
+                <label class="field">
+                  <span>Track your order</span>
+                  <div class="track-input-wrap">
+                    <input type="text" id="trackingInput" placeholder="Enter order # like #1024" />
+                    <button type="submit" class="btn btn-primary">Track</button>
+                  </div>
+                </label>
+              </form>
+
+              <div class="tracking-panel" id="trackingPanel">
+                <div class="tracking-header">
+                  <div>
+                    <p class="eyebrow">Live status</p>
+                    <h4 id="trackingTitle">Order #1024</h4>
+                  </div>
+                  <span class="order-status" id="trackingStatus">Shipped</span>
+                </div>
+
+                <div class="tracking-steps" id="trackingSteps"></div>
+
+                <div class="tracking-updates" id="trackingUpdates"></div>
+              </div>
+
+              <div class="orders-list" id="ordersList"></div>
+            </div>
+
+            <div class="account-section" id="wishlist-panel">
+              <h3>Wishlist</h3>
+              <div class="empty-state">
+                <p>You have 4 saved pieces waiting for your home.</p>
+                <a href="products.html" class="btn btn-secondary">Browse collection</a>
+              </div>
+            </div>
+
+            <div class="account-section" id="addresses-panel">
+              <h3>Address book</h3>
+              <div class="info-card">
+                <strong>Primary address</strong>
+                <p>245 Timber Lane<br />Portland, OR 97205<br />United States</p>
+              </div>
+            </div>
+
+            <div class="account-section" id="settings-panel">
+              <h3>Account settings</h3>
+              <div class="info-card">
+                <p>Profile, notification preferences, and password settings can be managed here.</p>
+                <button type="button" class="btn btn-secondary" data-popup="settings">Manage settings</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a href="index.html" class="logo logo-image footer-logo" aria-label="NovaCart home"><img src="logo/image.png" alt="NovaCart" /></a>
+          <p>Good design for everyday living.</p>
+        </div>
+        <div>
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="products.html">New arrivals</a></li>
+            <li><a href="products.html">Best sellers</a></li>
+            <li><a href="products.html">Gift sets</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">Our story</a></li>
+            <li><a href="contact.html">Support</a></li>
+            <li><a href="account.html">My account</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Follow</h4>
+          <ul>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Pinterest</a></li>
+            <li><a href="#">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container footer-bottom"><span>© <span id="year"></span> NovaCart. All rights reserved.</span></div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
